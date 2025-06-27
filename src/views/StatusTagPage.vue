@@ -24,9 +24,9 @@ onMounted(async () => {
     const rawComponentCode = (await import('../components/StatusTag.vue?raw')).default
     
     // Parse the component code into template, script, and style sections
-    templateCode.value = rawComponentCode.match(/<template>([\s\S]*)<\/template>/)?.[1].trim() || 'Could not extract template.'
-    scriptCode.value = rawComponentCode.match(/<script setup>([\s\S]*)<\/script>/)?.[1].trim() || 'Could not extract script.'
-    styleCode.value = rawComponentCode.match(/<style scoped>([\s\S]*)<\/style>/)?.[1].trim() || 'Could not extract style.'
+    templateCode.value = rawComponentCode.match(/<template>[\s\S]*<\/template>/)?.[0].trim() || 'Could not extract template.'
+    scriptCode.value = rawComponentCode.match(/<script setup>[\s\S]*<\/script>/)?.[0].trim() || 'Could not extract script.'
+    styleCode.value = rawComponentCode.match(/<style scoped>[\s\S]*<\/style>/)?.[0].trim() || 'Could not extract style.'
 
   } catch (e) {
     console.error("Failed to load component source code:", e)
