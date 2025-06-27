@@ -1,0 +1,87 @@
+/* Custom styles */
+:root {
+  --primary-color: #409eff;
+  --success-color: #67c23a;
+  --warning-color: #e6a23c;
+  --danger-color: #f56c6c;
+}
+
+/* Custom button styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #3a8ee6;
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(64, 158, 255, 0.5);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.btn-success:hover {
+  background-color: #5daf34;
+}
+
+.btn-success:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(103, 194, 58, 0.5);
+}
+
+/* Custom card styles */
+.card {
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0px 2px 24px -3px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+/* Custom progress bar styles */
+.progress-bar {
+  height: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Custom status tag styles */
+.status-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #d0f5e0;
+  background-color: #e7faf0;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+/* Custom sidebar styles */
+.sidebar {
+  width: 16rem;
+  background-color: white;
+  box-shadow: 0px 2px 24px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom toolbar styles */
+.toolbar {
+  background-color: white;
+  box-shadow: 0px 2px 24px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+}
