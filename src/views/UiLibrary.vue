@@ -8,6 +8,7 @@ import StatusTag from '../components/StatusTag.vue'
 import ScanButton from '../components/ScanButton.vue'
 import MobileField from '../components/MobileField.vue'
 import DropDown from '../components/DropDown.vue'
+import CardReview from '../components/CardReview.vue'
 
 const router = useRouter()
 const sidebarStore = useSidebarStore()
@@ -157,6 +158,11 @@ const dropdownOptions = ref([
                   <StatusTag status="pending" />
                   <StatusTag status="error" />
                 </div>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4">Card Review</h2>
+                <CardReview />
               </div>
             </div>
           </div>
