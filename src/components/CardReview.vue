@@ -264,7 +264,7 @@ p {
   gap: 24px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 32px;
   box-sizing: border-box;
 }
 
@@ -388,6 +388,6 @@ p {
 /* Responsive adjustments */
 @media (max-width: 375px) {
   .card-content {
-    padding: 0 12px;
+    padding: 0 32px;
   }
 }</style>
