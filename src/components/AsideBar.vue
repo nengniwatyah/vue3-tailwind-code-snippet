@@ -1,9 +1,9 @@
 <template>
   <!-- Sidebar container with dynamic width based on collapsed state
-     - Width: 16px when collapsed, 216px when expanded
+     - Width: 64px when collapsed, 216px when expanded
      - Full height with gradient background and subtle shadow -->
   <aside :class="[Collapsed ? 'w-16' : 'w-[216px]',
-   'h-screen bg-gradient-to-b from-[#0E70A3] to-[#084B6D] shadow-[0px_2px_24px_-3px_rgba(0,0,0,0.1)] flex flex-col']">
+   'h-screen bg-gradient-to-b from-[#0E70A3] to-[#084B6D] shadow-[0px_2px_24px_-3px_rgba(0,0,0,0.1)] flex flex-col transition-all duration-300 ease-in-out']">
     
     <!-- Navigation -->
     <nav class="flex-1 h-[calc(100vh-56px)] overflow-y-auto">

@@ -36,17 +36,11 @@ const layoutCode = ref(`
 <script setup>
 import AsideBar from '../components/AsideBar.vue'
 import Toolbar from '../components/Toolbar.vue'
-import { useRouter } from 'vue-router'
 import { useSidebarStore } from '@/stores/sidebar'
 import { storeToRefs } from 'pinia'
 
-const router = useRouter()
 const sidebarStore = useSidebarStore()
 const { isCollapsed } = storeToRefs(sidebarStore)
-
-const toggleCollapse = () => {
-  sidebarStore.toggle()
-}
 <\/script>
 
 <template>
@@ -57,7 +51,7 @@ const toggleCollapse = () => {
       </el-aside>
       <el-container class="h-full">
         <el-header>
-          <Toolbar @toggle-sidebar="toggleCollapse" />
+          <Toolbar @toggle-sidebar="sidebarStore.toggle()" />
         </el-header>
         <el-main class="h-full">
           <div class="flex justify-center items-center h-full">
@@ -333,14 +327,16 @@ const isCollapsed = ref(false);
                         <pre class="bg-white p-4 rounded mt-2 overflow-x-auto">
                           <code class="text-sm">
 &lt;template&gt;
-  &lt;Toolbar @toggle-sidebar="toggleSidebar" /&gt;
+  &lt;Toolbar @toggle-sidebar="handleToggle" /&gt;
 &lt;/template&gt;
 
 &lt;script setup&gt;
 import Toolbar from './components/Toolbar.vue';
 
-const toggleSidebar = () => {
+const handleToggle = () => {
   // Logic to toggle the sidebar's collapsed state
+  // For example, by calling a Pinia store action:
+  // sidebarStore.toggle();
 };
 &lt;/script&gt;
                           </code>

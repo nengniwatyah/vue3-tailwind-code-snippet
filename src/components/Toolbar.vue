@@ -5,7 +5,7 @@
       <div class="menu-section">
         <button 
           class="menu-button" 
-          @click="toggleSidebar"
+          @click="$emit('toggle-sidebar')"
         >
           <img src="/src/assets/icons/menu.svg" class="menu-icon" alt="Menu" />
         </button>
@@ -23,7 +23,12 @@
   </div>
 </template>
 
-<style scoped>
+<script setup>
+// Define the event that this component can emit
+defineEmits(['toggle-sidebar']);
+</script>
+
+<style lang="postcss" scoped>
 .toolbar-container {
   @apply flex items-center justify-between px-4 sm:px-6 h-12 w-full;
 }
@@ -59,18 +64,4 @@
 .user-icon {
   @apply w-5 h-5 text-gray-500 ml-auto;
 }
-</style>
-
-<script setup>
-import { useSidebarStore } from '@/stores/sidebar'
-
-const sidebarStore = useSidebarStore()
-
-const toggleSidebar = () => {
-  sidebarStore.toggle()
-}
-</script>
-
-<style scoped>
-/* Add any custom styles here if needed */
 </style>

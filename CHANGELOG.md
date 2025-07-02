@@ -1,16 +1,20 @@
-# Changelog
 
 ## 2025-07-02
 
-### Added
-- **Add new component `CardReview`** (Commit: `eebe02ae1bafa725bf35e9df8131644b775c83d7`)
-  - เพิ่มคอมโพเนนต์ Vue ใหม่ `src/components/CardReview.vue` ซึ่งเป็นคอมโพเนนต์สำหรับแสดงรายละเอียดการรีวิว เช่น หมายเลขคำสั่งซื้อ, รายการสินค้า, จำนวน, บัญชี, ชื่อ, เบอร์มือถือ, Wallet ID, จำนวนเงิน, ค่าธรรมเนียม และยอดรวม
-  - คอมโพเนนต์นี้มีการใช้ `el-button` จาก Element Plus และมีการนำเข้าไอคอน `iconcheck.svg` ใหม่ที่ `src/assets/icons/iconcheck.svg`
-  - มีการเพิ่มการใช้งาน `CardReview` ใน `src/views/UiLibrary.vue` เพื่อแสดงผลในหน้า UI Library
-  - มีการเพิ่มไฟล์ทดสอบ `tests/components/CardReview.test.js` เพื่อทดสอบการเรนเดอร์คอมโพเนนต์ด้วย props เริ่มต้นและ props ที่กำหนดเอง
+### Refactored
+- **Refactor `AsideBar.vue` for improved transitions and code style**
+  - Migrated component to Vue 3 Composition API (`<script setup>`).
+  - Added `transition-all duration-300 ease-in-out` class to the main `<aside>` element for smoother sidebar expansion/collapse.
+  - Updated inline documentation comment for sidebar width from `16px` to `64px` to reflect actual Tailwind utility class values.
 
-### Changed
-- **Edit card content padding** (Commit: `1070510e09deb570013de9258fdcf5abbfdd4e83`)
-  - ปรับเปลี่ยน padding ของเนื้อหาการ์ดในคอมโพเนนต์ `src/components/CardReview.vue`
-  - เดิม `padding: 0 16px;` ถูกเปลี่ยนเป็น `padding: 0 32px;` สำหรับ `.card-content`
-  - นอกจากนี้ยังมีการปรับ padding สำหรับ `.card-content` ใน media query สำหรับหน้าจอขนาดเล็ก (max-width: 375px) จาก `padding: 0 12px;` เป็น `padding: 0 32px;` เพื่อให้มีระยะห่างที่สอดคล้องกันมากขึ้น
+- **Refactor `Toolbar.vue` for better component reusability and maintainability**
+  - Changed internal logic to emit `toggle-sidebar` event instead of directly interacting with Pinia store, enhancing component decoupling.
+  - Consolidated multiple `<style scoped>` blocks into a single block.
+  - Replaced `@apply` directives in `<style>` with direct Tailwind utility classes in the `<template>` for a more "utility-first" approach.
+
+- **Update `LayoutAside.vue` to align with `Toolbar.vue` changes**
+  - Modified the component to listen for the `toggle-sidebar` event emitted by `Toolbar.vue` and trigger the `sidebarStore.toggle()` action accordingly.
+
+- **Update `AsideBarPage.vue` documentation and code examples**
+  - Refactored the `layoutCode` string to reflect the updated `Toolbar.vue` usage, directly calling `sidebarStore.toggle()` on the emitted event.
+  - Updated the "วิธีการใช้งาน" (How to use) example for `Toolbar.vue` to demonstrate the new event-based interaction pattern (`@toggle-sidebar="handleToggle"`).

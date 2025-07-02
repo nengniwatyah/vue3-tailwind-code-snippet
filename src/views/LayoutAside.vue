@@ -1,11 +1,9 @@
 <script setup>
 import AsideBar from '../components/AsideBar.vue'
 import Toolbar from '../components/Toolbar.vue'
-import { useRouter } from 'vue-router'
 import { useSidebarStore } from '@/stores/sidebar'
 import { storeToRefs } from 'pinia'
 
-const router = useRouter()
 const sidebarStore = useSidebarStore()
 const { isCollapsed } = storeToRefs(sidebarStore)
 </script>
@@ -18,7 +16,7 @@ const { isCollapsed } = storeToRefs(sidebarStore)
       </el-aside>
       <el-container class="h-full">
         <el-header>
-          <Toolbar />
+          <Toolbar @toggle-sidebar="sidebarStore.toggle()" />
         </el-header>
         <el-main class="h-full">
           <div class="flex justify-center items-center h-full">
